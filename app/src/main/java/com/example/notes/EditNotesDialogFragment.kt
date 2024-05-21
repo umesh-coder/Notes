@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.wear.compose.material.dialog.Dialog
+
 
 class EditNotesDialogFragment : DialogFragment() {
 
@@ -43,6 +45,8 @@ class EditNotesDialogFragment : DialogFragment() {
 
         val titleEditText = view.findViewById<EditText>(R.id.edit_title)
         val descriptionEditText = view.findViewById<EditText>(R.id.edit_description)
+        val titleErrorTextView = view.findViewById<TextView>(R.id.title_error_text)
+        val descriptionErrorTextView = view.findViewById<TextView>(R.id.description_error_text)
 
         arguments?.let {
             titleEditText.setText(it.getString(ARG_TITLE))
@@ -55,7 +59,23 @@ class EditNotesDialogFragment : DialogFragment() {
             .setPositiveButton("Save") { _, _ ->
                 val newTitle = titleEditText.text.toString()
                 val newDescription = descriptionEditText.text.toString()
-                listener.onNotesEdited(newTitle, newDescription, position)
+
+                if (newTitle.isNotBlank() && newDescription.isNotBlank()) {
+                    listener.onNotesEdited(newTitle, newDescription, position)
+                } else {
+                    if (newTitle.isBlank()) {
+                        titleErrorTextView.visibility = View.VISIBLE
+                        titleErrorTextView.text = "Title cannot be empty"
+                    } else {
+                        titleErrorTextView.visibility = View.GONE
+                    }
+                    if (newDescription.isBlank()) {
+                        descriptionErrorTextView.visibility = View.VISIBLE
+                        descriptionErrorTextView.text = "Description cannot be empty"
+                    } else {
+                        descriptionErrorTextView.visibility = View.GONE
+                    }
+                }
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.cancel()

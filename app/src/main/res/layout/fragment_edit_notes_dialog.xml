@@ -1,20 +1,39 @@
+<!-- fragment_edit_notes_dialog.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:hint="Title" />
 
-    <EditText
+    <!-- Error TextView for title -->
+    <TextView
+        android:id="@+id/title_error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Description"
+
         android:inputType="textMultiLine" />
+
+    <!-- Error TextView for description -->
+    <TextView
+        android:id="@+id/description_error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone" />
 
 </LinearLayout>

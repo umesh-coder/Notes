@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="border_default">#808080</color> <!-- Gray color -->
+    <color name="border_error">#FF0000</color> <!-- Red color -->
+    <color name="error_text_color">#FF0000</color> <!-- Red color -->
 </resources>

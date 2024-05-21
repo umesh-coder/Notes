@@ -27,6 +27,8 @@ class addNotes : Fragment(R.layout.fragment_add_notes) {
             }
 
             parentFragmentManager.setFragmentResult("newNote", result)
+            getTitle.setText("")
+            getDescription.setText("")
             requireActivity().supportFragmentManager.popBackStack()
         }
     }

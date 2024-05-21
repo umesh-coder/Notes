@@ -4,17 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".add_notes">
+    tools:context=".addNotes">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD NOTES"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/title_edit_text"
