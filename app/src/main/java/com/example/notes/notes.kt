@@ -11,51 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.util.copy
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-//class notes : Fragment(R.layout.fragment_notes) {
-//
-//    private lateinit var recyclerView: RecyclerView
-//    private lateinit var recyclerViewAdapter: RecyclerViewAdapter
-//    private val notesData: ArrayList<NotesModel> = ArrayList()
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        return inflater.inflate(R.layout.fragment_notes, container, false)
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        recyclerView = view.findViewById(R.id.notes_list_view)
-//        recyclerView.layoutManager = LinearLayoutManager(context)
-//        recyclerViewAdapter = RecyclerViewAdapter(notesData)
-//        recyclerView.adapter = recyclerViewAdapter
-//
-//        val addNoteButton = view.findViewById<FloatingActionButton>(R.id.add_notes_button)
-//        addNoteButton.setOnClickListener {
-//            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-//            val addNotesFragment = addNotes()
-//            transaction.replace(R.id.frameLayout, addNotesFragment)
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        // Listen for result from AddNotesFragment
-//        parentFragmentManager.setFragmentResultListener("newNote", this) { _, bundle ->
-//            val title = bundle.getString("title")
-//            val description = bundle.getString("description")
-//            if (!title.isNullOrBlank() && !description.isNullOrBlank()) {
-//                val newNote = NotesModel(title, description)
-//                notesData.add(newNote)
-//                recyclerViewAdapter.notifyItemInserted(notesData.size - 1)
-//            }
-//        }
-//    }
-//}
-
-
-
 class notes : Fragment(R.layout.fragment_notes), EditNotesDialogFragment.EditNotesDialogListener {
 
     private lateinit var recyclerView: RecyclerView
@@ -78,15 +33,6 @@ class notes : Fragment(R.layout.fragment_notes), EditNotesDialogFragment.EditNot
             showEditDialog(note, position)
         }
         recyclerView.adapter = recyclerViewAdapter
-
-        val addNoteButton = view.findViewById<FloatingActionButton>(R.id.add_notes_button)
-        addNoteButton.setOnClickListener {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            val addNotesFragment = addNotes()
-            transaction.replace(R.id.frameLayout, addNotesFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
 
         // Listen for result from AddNotesFragment
         parentFragmentManager.setFragmentResultListener("newNote", this) { _, bundle ->

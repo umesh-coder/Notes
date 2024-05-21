@@ -21,14 +21,5 @@
         android:id="@+id/notes_list_view"
 
         />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_save"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:padding="5dp"
-        android:id="@+id/add_notes_button"
-        />
 
 </FrameLayout>
